@@ -4,7 +4,7 @@ description: Capture a new project idea in the Obsidian vault
 argument-hint: <idea description>
 ---
 
-Capture a new project idea in the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/`.
+Capture a new project idea in the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/`.
 
 The idea: $ARGUMENTS
 
@@ -12,7 +12,7 @@ Follow these steps:
 
 ## Step 1: Append to today's daily note
 
-Check if today's daily note exists at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/DailyNotes/YYYY-MM-DD.md` (use today's date).
+Check if today's daily note exists at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/DailyNotes/YYYY-MM-DD.md` (use today's date).
 
 - If it exists, find the `## Ideas` section and append the idea there as a bullet point with the `#idea` tag:
   ```

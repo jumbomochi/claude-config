@@ -4,7 +4,7 @@ description: Append an entry to the Tech Log in Obsidian
 argument-hint: <log entry>
 ---
 
-Append the following entry to the file at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/Tech Log.md`:
+Append the following entry to the file at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/Tech Log.md`:
 
 ```
 ## $ARGUMENTS

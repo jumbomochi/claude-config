@@ -3,15 +3,15 @@ name: sync-repos
 description: Sync GitHub repo metadata into the Obsidian vault
 ---
 
-Sync GitHub repo metadata into the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/`.
+Sync GitHub repo metadata into the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/`.
 
 Follow these steps exactly:
 
 ## Step 1: Scan existing project notes
 
 Read all `.md` files in both:
-- `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/Projects/` (active)
-- `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/Projects/Archive/` (archived)
+- `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/Projects/` (active)
+- `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/Projects/Archive/` (archived)
 
 For each file, extract the `repo_url` field from the YAML frontmatter. Parse the **owner** and **repo name** from the URL (e.g., `https://github.com/zoidburg-c/local-ocr` → owner: `zoidburg-c`, name: `local-ocr`). Build a map of repo_name → { file_path, owner, repo_url }. These are the **tracked repos** — only these repos will be synced.
 
@@ -45,7 +45,7 @@ Ignore any GitHub repos that do NOT have a matching project note. Do NOT create 
 
 ## Step 4: Update CLAUDE.md Active Repos table
 
-Read `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/CLAUDE.md`. Replace the Active Repos table (everything between the `## Active Repos` heading and the next `##` heading) with an updated table. Include ONLY repos that have project notes in `Projects/` (not Archive). Format:
+Read `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/CLAUDE.md`. Replace the Active Repos table (everything between the `## Active Repos` heading and the next `##` heading) with an updated table. Include ONLY repos that have project notes in `Projects/` (not Archive). Format:
 
 ```
 ## Active Repos
