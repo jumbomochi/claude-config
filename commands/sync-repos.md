@@ -1,3 +1,8 @@
+---
+name: sync-repos
+description: Sync GitHub repo metadata into the Obsidian vault
+---
+
 Sync GitHub repo metadata into the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/`.
 
 Follow these steps exactly:

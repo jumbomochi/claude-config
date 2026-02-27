@@ -1,3 +1,9 @@
+---
+name: idea
+description: Capture a new project idea in the Obsidian vault
+argument-hint: <idea description>
+---
+
 Capture a new project idea in the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/`.
 
 The idea: $ARGUMENTS
