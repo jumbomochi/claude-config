@@ -1,9 +1,8 @@
 ---
 name: pull-issues
 description: Use when you want to pull open GitHub issues from the current repo and implement them sequentially
-allowedTools:
-  - Bash(gh issue list *)
-  - Bash(gh issue view *)
+disable-model-invocation: true
+allowed-tools: Bash(gh issue list *), Bash(gh issue view *)
 ---
 
 # Pull Issues

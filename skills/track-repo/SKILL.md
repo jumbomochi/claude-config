@@ -2,6 +2,8 @@
 name: track-repo
 description: Start tracking a new GitHub repo in the Obsidian vault
 argument-hint: <repo-name>
+disable-model-invocation: true
+allowed-tools: Read, Write, Edit, Bash(gh *)
 ---
 
 Start tracking a new GitHub repo in the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/`.

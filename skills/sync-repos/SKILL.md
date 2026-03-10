@@ -1,6 +1,8 @@
 ---
 name: sync-repos
 description: Sync GitHub repo metadata into the Obsidian vault
+disable-model-invocation: true
+allowed-tools: Read, Write, Edit, Bash(gh *)
 ---
 
 Sync GitHub repo metadata into the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/`.

@@ -2,6 +2,8 @@
 name: idea
 description: Capture a new project idea in the Obsidian vault
 argument-hint: <idea description>
+disable-model-invocation: true
+allowed-tools: Read, Write, Edit
 ---
 
 Capture a new project idea in the Obsidian vault at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/`.

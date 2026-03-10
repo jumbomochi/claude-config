@@ -2,6 +2,8 @@
 name: log
 description: Append an entry to the Tech Log in Obsidian
 argument-hint: <log entry>
+disable-model-invocation: true
+allowed-tools: Read, Write, Edit
 ---
 
 Append the following entry to the file at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/Tech Log.md`:
