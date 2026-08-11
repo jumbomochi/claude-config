@@ -1,2 +1,9 @@
-.DS_Store
+# gstack installs itself as a full git clone here (1GB+ with node_modules).
+# Reinstall with the gstack setup script / gstack-upgrade skill; the
+# skills/*/SKILL.md symlinks committed in this repo point into it.
+skills/gstack/
+
+node_modules/
 __pycache__/
+*.pyc
+.DS_Store

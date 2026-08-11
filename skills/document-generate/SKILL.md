@@ -1,0 +1,1 @@
+/Users/huiliang/GitHub/claude-config/skills/gstack/document-generate/SKILL.md

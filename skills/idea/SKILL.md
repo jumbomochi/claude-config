@@ -43,15 +43,56 @@ Check if today's daily note exists at `/Users/huiliang/Library/Mobile Documents/
   ## End of day
   ```
 
-## Step 2: Confirm
+## Step 2: Create an idea note in Ideas/
+
+Create a new file at `/Users/huiliang/Library/Mobile Documents/iCloud~md~obsidian/Documents/huiliang/Ideas/<Idea Title>.md` using a short, descriptive Title Case name derived from the idea description.
+
+Use this template:
+```
+---
+type: idea
+cssclasses: [idea]
+status: brainstorming
+tags: []
+created: YYYY-MM-DD
+---
+
+# <Idea Title>
+
+## Problem / Motivation
+<One-sentence summary extracted from the idea description>
+
+## What it could look like
+
+
+## Tech considerations
+
+
+## Open questions
+
+```
+
+- If a file with the same name already exists, do NOT overwrite it. Skip this step and note it in the confirmation.
+
+## Step 3: Link the daily note entry to the idea note
+
+Go back to the bullet point added in Step 1 and update it to include a wiki-link to the new idea note:
+```
+- #idea [[<Idea Title>]] — <brief description>
+```
+
+## Step 4: Confirm
 
 Print:
 ```
-Idea captured in DailyNotes/YYYY-MM-DD.md:
-- #idea $ARGUMENTS
+Idea captured:
+  Daily note: DailyNotes/YYYY-MM-DD.md
+  Idea note:  Ideas/<Idea Title>.md
+  - #idea [[<Idea Title>]] — <brief description>
 ```
 
 ## Rules
 - NEVER delete or overwrite existing content in the daily note.
 - Only append to the Ideas section.
 - Always use the #idea tag so Dataview can query it.
+- NEVER overwrite an existing idea note in Ideas/.

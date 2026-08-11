@@ -23,10 +23,11 @@ Partition the tracked repos into two groups:
 
 ## Step 2: Fetch repo data from GitHub
 
-**For owned repos**, bulk-fetch:
+**For owned repos**, bulk-fetch via the **authenticated** endpoint so **private repos are included** (the vault is for personal use — every owned repo must sync). Filter to owner `jumbomochi`:
 ```bash
-gh api users/jumbomochi/repos --paginate --jq '.[] | {name, description, language, pushed_at}'
+gh api user/repos --paginate --jq '.[] | select(.owner.login=="jumbomochi") | {name, description, language, pushed_at}'
 ```
+Do NOT use `users/jumbomochi/repos` — that endpoint returns public repos only and silently omits private ones.
 
 **For each collaborator repo**, fetch individually using the owner from `repo_url`:
 ```bash
@@ -41,7 +42,21 @@ Merge all results into a single set of GitHub data for Step 3.
 
 For each **tracked repo** (from Step 1) that has a match in the GitHub data (from Step 2):
 - Compare the `last_pushed` date in frontmatter with `pushed_at` from GitHub (use YYYY-MM-DD format, truncate the GitHub ISO timestamp).
-- If the GitHub date is newer, update ONLY the `last_pushed` field in the frontmatter. Do NOT modify any other part of the file (Overview, Notes, Tasks, or other frontmatter fields).
+- If the GitHub date is newer:
+  1. Update the `last_pushed` field in the frontmatter.
+  2. Fetch commits since the old `last_pushed` date. Pass `since` as a **GET query param** in the URL — using `-f`/`-F` makes `gh api` issue a POST and the endpoint returns 404:
+     ```bash
+     gh api "repos/<owner>/<repo-name>/commits?since=<old_last_pushed>T00:00:00Z&per_page=100" --jq '.[].commit.message | split("\n")[0]'
+     ```
+  3. Append an activity entry to the `## Notes` section with this format:
+     ```
+     ### <YYYY-MM-DD>
+     <one-line summary of what was done, synthesized from the commit messages — not a raw list of commits>
+     ```
+     - Synthesize the commits into a **concise, human-readable summary** (1-3 sentences). Group related changes together. Focus on *what was accomplished*, not individual commits.
+     - Append the entry at the **top** of the Notes section (directly after `## Notes`), so the most recent activity appears first.
+     - If a `### <YYYY-MM-DD>` entry already exists for that date, append to it instead of creating a duplicate.
+     - Do NOT modify or remove any existing notes content.
 
 Ignore any GitHub repos that do NOT have a matching project note. Do NOT create new notes.
 
@@ -64,7 +79,7 @@ After all changes, print a summary like:
 ```
 Sync complete:
 - X tracked repos found (Y active, Z archived)
-- N notes updated with newer push dates
+- N notes updated with newer push dates and activity summaries
 - C collaborator repos synced (W warnings)
 - Active Repos table in CLAUDE.md refreshed
 ```
@@ -72,7 +87,7 @@ Sync complete:
 ## Rules
 - NEVER create new project notes. Only update existing ones.
 - NEVER delete any file or any content from existing notes.
-- NEVER modify user-written sections (Overview, Notes, Tasks) in existing notes.
-- Only update `last_pushed` in the frontmatter of existing notes.
-- If `gh` CLI is not authenticated or fails on the bulk fetch, report the error clearly and stop.
+- NEVER modify the Overview or Tasks sections in existing notes.
+- Only update `last_pushed` in the frontmatter and append activity entries to the Notes section.
+- If `gh` CLI is not authenticated or fails on the bulk fetch, report the error clearly and stop. (The `user/repos` endpoint requires an authenticated token with `repo` scope to see private repos — if private repos are missing, check `gh auth status` scopes.)
 - If an individual collaborator repo fetch fails, log a warning and continue with the rest.
