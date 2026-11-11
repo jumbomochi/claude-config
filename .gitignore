@@ -6,6 +6,9 @@ skills/gstack/
 # Skills Claude Code syncs from claude.ai (account-managed, rewritten by the app).
 skills/synced/
 
+# Private skills: this repo is public, keep personal details out.
+skills/start-work/
+
 node_modules/
 __pycache__/
 *.pyc
