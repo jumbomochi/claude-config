@@ -9,7 +9,7 @@ CLAUDE_DIR="$HOME/.claude"
 
 mkdir -p "$CLAUDE_DIR"
 
-ITEMS=("skills" "agents" "commands" "settings.json")
+ITEMS=("skills" "agents" "CLAUDE.md")
 
 for item in "${ITEMS[@]}"; do
     target="$CLAUDE_DIR/$item"
@@ -27,6 +27,17 @@ for item in "${ITEMS[@]}"; do
         echo "Linked: $target -> $source"
     fi
 done
+
+# gstack is gitignored (1GB+ clone); install it at the commit pinned in gstack.lock.
+GSTACK_DIR="$CONFIG_DIR/skills/gstack"
+GSTACK_REPO=$(sed -n 's/^repo=//p' "$CONFIG_DIR/gstack.lock")
+GSTACK_COMMIT=$(sed -n 's/^commit=//p' "$CONFIG_DIR/gstack.lock")
+if [ ! -d "$GSTACK_DIR/.git" ]; then
+    git clone "$GSTACK_REPO" "$GSTACK_DIR"
+fi
+git -C "$GSTACK_DIR" fetch --quiet origin
+git -C "$GSTACK_DIR" checkout --quiet "$GSTACK_COMMIT"
+echo "gstack pinned at $GSTACK_COMMIT. Run its ./setup if this is a fresh clone."
 
 echo ""
 echo "Done! Claude Code config is now synced from $CONFIG_DIR"

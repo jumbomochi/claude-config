@@ -1,0 +1,4 @@
+# Pinned gstack version. setup.sh checks out this commit; bump deliberately.
+repo=https://github.com/garrytan/gstack.git
+version=1.91.324.0
+commit=53db038c6ba6f1408e12418a4adaf61c21808607
