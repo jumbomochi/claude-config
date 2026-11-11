@@ -39,5 +39,16 @@ git -C "$GSTACK_DIR" fetch --quiet origin
 git -C "$GSTACK_DIR" checkout --quiet "$GSTACK_COMMIT"
 echo "gstack pinned at $GSTACK_COMMIT. Run $GSTACK_DIR/setup to (re)generate its skill wrappers."
 
+# My gstack preferences (stored in gstack's own state dir, so reapply them here).
+GSTACK_PREFS=(
+    "update_check=false"       # stay on the pinned version
+    "auto_upgrade=false"
+    "founder_resources=false"  # no YouTube/essay recommendations in /office-hours
+)
+for pref in "${GSTACK_PREFS[@]}"; do
+    "$GSTACK_DIR/bin/gstack-config" set "${pref%%=*}" "${pref#*=}" \
+        || echo "WARNING: could not set gstack ${pref%%=*}"
+done
+
 echo ""
 echo "Done! Claude Code config is now synced from $CONFIG_DIR"
