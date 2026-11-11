@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/plan-design-review/SKILL.md

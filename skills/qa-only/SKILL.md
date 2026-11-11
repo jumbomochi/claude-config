@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/qa-only/SKILL.md

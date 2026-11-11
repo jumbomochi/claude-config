@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/ios-sync/SKILL.md

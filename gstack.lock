@@ -1,4 +1,5 @@
-# Pinned gstack version. setup.sh checks out this commit; bump deliberately.
+# Pinned gstack version. setup.sh checks out this commit; bump deliberately,
+# then run scripts/gstack-ignore.sh to refresh the .gitignore wrapper list.
 repo=https://github.com/garrytan/gstack.git
 version=1.91.324.0
 commit=53db038c6ba6f1408e12418a4adaf61c21808607

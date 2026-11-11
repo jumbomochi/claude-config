@@ -37,7 +37,7 @@ if [ ! -d "$GSTACK_DIR/.git" ]; then
 fi
 git -C "$GSTACK_DIR" fetch --quiet origin
 git -C "$GSTACK_DIR" checkout --quiet "$GSTACK_COMMIT"
-echo "gstack pinned at $GSTACK_COMMIT. Run its ./setup if this is a fresh clone."
+echo "gstack pinned at $GSTACK_COMMIT. Run $GSTACK_DIR/setup to (re)generate its skill wrappers."
 
 echo ""
 echo "Done! Claude Code config is now synced from $CONFIG_DIR"

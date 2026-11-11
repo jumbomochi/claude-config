@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/open-gstack-browser/SKILL.md

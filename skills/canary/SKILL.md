@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/canary/SKILL.md

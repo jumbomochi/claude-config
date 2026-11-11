@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/make-pdf/SKILL.md

@@ -1,1 +1,0 @@
-/Users/huiliang/GitHub/claude-config/skills/gstack/sync-gbrain/SKILL.md
